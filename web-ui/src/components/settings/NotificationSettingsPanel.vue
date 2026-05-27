@@ -248,10 +248,10 @@ function resolveChannelBadge(channel: ChannelKey) {
       </Card>
 
       <Card class="app-surface-subtle overflow-hidden border-l-4 border-l-green-500">
-        <CardHeader><CardTitle>PushPlus</CardTitle><CardDescription>微信推送服务，支持公众号、企微、App等多渠道</CardDescription></CardHeader>
+        <CardHeader><CardTitle>PushPlus</CardTitle><CardDescription>{{ t('notifyPanel.pushplus.description') }}</CardDescription></CardHeader>
         <CardContent class="grid gap-4 md:grid-cols-2">
           <div class="grid gap-2"><Label>Token</Label><Input type="password" :model-value="form.PUSHPLUS_TOKEN ?? ''" :placeholder="t('notifyPanel.secretKeepPlaceholder')" @update:model-value="(value) => updateSecretField('PUSHPLUS_TOKEN', String(value))" /></div>
-          <div class="grid gap-2"><Label>Topic (可选)</Label><Input :model-value="form.PUSHPLUS_TOPIC ?? ''" placeholder="群组编码，不填仅发送给自己" @update:model-value="(value) => updateField('PUSHPLUS_TOPIC', String(value))" /></div>
+          <div class="grid gap-2"><Label>Topic</Label><Input :model-value="form.PUSHPLUS_TOPIC ?? ''" :placeholder="t('notifyPanel.pushplus.topicPlaceholder')" @update:model-value="(value) => updateField('PUSHPLUS_TOPIC', String(value))" /></div>
         </CardContent>
         <CardFooter class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"><Badge :variant="isChannelConfigured('pushplus') ? 'default' : 'outline'">{{ resolveChannelBadge('pushplus') }}</Badge><div class="flex flex-wrap gap-2"><Button variant="ghost" size="sm" :disabled="props.isSaving" @click="clearChannel('pushplus')"><Trash2 class="h-4 w-4" />{{ t('notifyPanel.clear') }}</Button><Button variant="outline" size="sm" :disabled="props.isSaving" @click="handleTest('pushplus')"><TestTube2 class="h-4 w-4" />{{ t('notifyPanel.test') }}</Button></div></CardFooter>
       </Card>

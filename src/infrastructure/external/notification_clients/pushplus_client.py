@@ -23,7 +23,7 @@ class PushPlusClient(NotificationClient):
         super().__init__(enabled=bool(token), pcurl_to_mobile=pcurl_to_mobile)
         self.token = token
         self.topic = topic
-        self.api_url = "http://www.pushplus.plus/send"
+        self.api_url = "https://www.pushplus.plus/send"
 
     async def send(self, product_data: Dict, reason: str) -> None:
         """发送 PushPlus 通知"""
